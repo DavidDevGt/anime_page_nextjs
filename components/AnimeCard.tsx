@@ -31,22 +31,22 @@ function AnimeCard({ anime, index }: Prop) {
       animate="visible"
       transition={{ delay: index * 0.25, ease: "easeInOut", duration: 0.5 }}
       viewport={{ amount: 0 }}
-      className="max-w-sm rounded relative w-full"
+      className="max-w-sm rounded overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out bg-[#1a1c23] hover:bg-[#161921] cursor-pointer"
     >
-      <div className="relative w-full h-[37vh]">
+      <div className="relative w-full h-[37vh] group">
         <Image
           src={`https://shikimori.one${anime.image.original}`}
           alt={anime.name}
           fill
-          className="rounded-xl"
+          className="rounded-t-xl group-hover:scale-105 transition-transform duration-300 ease-in-out"
         />
       </div>
-      <div className="py-4 flex flex-col gap-3">
+      <div className="py-4 px-6 flex flex-col gap-3">
         <div className="flex justify-between items-center gap-1">
           <h2 className="font-bold text-white text-xl line-clamp-1 w-full">
             {anime.name}
           </h2>
-          <div className="py-1 px-2 bg-[#161921] rounded-sm">
+          <div className="py-1 px-2 bg-[#2a2e37] rounded-sm">
             <p className="text-white text-sm font-bold capitalize">
               {anime.kind}
             </p>
@@ -68,7 +68,7 @@ function AnimeCard({ anime, index }: Prop) {
           <div className="flex flex-row gap-2 items-center">
             <Image
               src="./star.svg"
-              alt="star"
+              alt="star rating"
               width={18}
               height={18}
               className="object-contain"

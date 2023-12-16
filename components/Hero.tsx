@@ -1,22 +1,28 @@
 import Image from "next/image";
+import { MotionDiv } from "./MotionDiv";
 
 function Hero() {
   return (
-    <header className="bg-hero bg-center bg-cover bg-no-repeat sm:p-16 py-16 px-8 flex justify-center lg:items-center max-lg:flex-col w-full sm:gap-16 gap-0">
-      <div className="flex-1 flex flex-col gap-10">
+    <header className="bg-hero bg-center bg-cover bg-no-repeat sm:p-16 py-16 px-8 flex flex-col lg:flex-row justify-center items-center w-full gap-10">
+      <MotionDiv
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="flex-1 flex flex-col items-center gap-5"
+      >
         <Image
-          src="./logo.svg"
+          src="/img/logo.png"
           alt="logo"
-          width={101}
-          height={96}
-          className="object-contain"
+          width={150}
+          height={150}
+          className="object-contain animate-bounce"
         />
-        <h1 className="sm:text-6xl text-5xl text-white lg:max-w-lg font-bold leading-[120%]">
-          Explore The <span className="red-gradient">Diverse Realms</span> of
-          Anime Magic
+        <h1 className="text-6xl text-white lg:max-w-lg font-bold leading-tight text-center">
+          Descubre los <span className="text-red-500">Mágicos Mundos</span> del
+          Anime
         </h1>
-      </div>
-      <div className="lg:flex-1 relative w-full h-[50vh] justify-center">
+      </MotionDiv>
+      <div className="lg:flex-1 relative w-full h-[50vh]">
         <Image src="/anime.png" alt="anime" fill className="object-contain" />
       </div>
     </header>
